@@ -12,7 +12,8 @@ snp, libsnmp-dev, python3-dev
 
 # requirements
 python requirements are in requirements.txt \
-use pip3 package manager to install them
+use pip3 package manager to install them \
+use a virtualenv if possible to avoid package conflicts
 
 # installation
 - copy mib files from mibs to  ~/.snmp/mibs 
