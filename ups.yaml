@@ -1,0 +1,47 @@
+# ups
+
+ups:
+  # halt when battery reach this capacity
+  min_battery_runtime:
+    hours: 1
+    minutes: 30
+
+  cmd: "ls -la"
+
+
+snmp:
+  session:
+    hostname: "ups-lab.home.lan"
+    community: "private"
+    version: 1
+
+
+# logging
+logging:
+  version: 1
+  disable_existing_loggers: true
+  formatters:
+    standard:
+      format: "%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(message)s"
+
+  handlers:
+    console:
+      class: logging.StreamHandler
+      # level: DEBUG
+      formatter: standard
+      stream: ext://sys.stdout
+    file:
+
+      class: logging.handlers.TimedRotatingFileHandler
+      # level: DEBUG
+      formatter: standard
+      filename: ${home}/logs/ups.log
+      backupCount: 5
+      encoding: utf8
+#  https://hg.python.org/cpython/file/2.7/Lib/logging/handlers.py#l228
+      when: "midnight"
+  loggers:
+    ups:
+      handlers: [console, file]
+      level: DEBUG
+
