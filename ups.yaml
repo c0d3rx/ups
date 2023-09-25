@@ -11,7 +11,7 @@ ups:
 
 snmp:
   session:
-    hostname: "ups-lab.home.lan"
+    hostname: "ups-pcfab.home.lan"
     community: "private"
     version: 1
 
