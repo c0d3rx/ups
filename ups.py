@@ -40,10 +40,6 @@ if __name__ == "__main__":
     session = Session(**session_conf)
     log.debug(f"{session}")
 
-    upsAdvConfigShutoffDelay = float(session.get("PowerNet-MIB::upsAdvConfigShutoffDelay.0").value)/100
-#
-    log.debug(f"{upsAdvConfigShutoffDelay=}")
-
     upsBasicOutputStatus = int(session.get("PowerNet-MIB::upsBasicOutputStatus.0").value)  # 2 = online, 3 = onbattery
     log.debug(f"{upsBasicOutputStatus=}")
 

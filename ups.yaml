@@ -6,8 +6,7 @@ ups:
     hours: 1
     minutes: 30
 
-  cmd: "ls -la"
-
+  cmd: "power_off.sh"
 
 snmp:
   session:
